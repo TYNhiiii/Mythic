@@ -212,7 +212,7 @@ body {
 
 .shake-bar {
   width: 55%;
-  height: 0.5px;
+  height: 0.75px;
   background: linear-gradient(90deg, var(--amber), var(--orange-main));
   margin: 4px 0;
 }
