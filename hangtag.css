@@ -1,180 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap');
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: 'Montserrat', sans-serif;
   background: #7a7a7a;
+  display: flex; justify-content: center; align-items: center;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 20px;
 }
 
 .hangtag {
-  position: relative;
-  width: 189px;
-  height: 378px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  width: 189px; height: 378px;
   background: #fff;
+  display: flex; flex-direction: column;
   clip-path: polygon(30px 0%, calc(100% - 30px) 0%, 100% 30px, 100% 100%, 0% 100%, 0% 30px);
-  box-shadow: 0 10px 36px rgba(0,0,0,.5);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* ZONE 1 */
-.top-zone {
-  background: #E87520;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 5px;
-  position: relative;
-}
+.top-zone { background: #E87520; text-align: center; padding-bottom: 5px; }
+.hole-area { height: 28px; display: flex; align-items: center; justify-content: center; }
+.hole-area::before { content: ''; width: 16px; height: 16px; border-radius: 50%; background: #7a7a7a; border: 1.5px solid #FFB000; }
+.basf-logo { width: 70px; filter: brightness(0) invert(1); margin-bottom: 5px; }
+.product-mythic { color: #fff; font-weight: 800; font-size: 15px; display: block; }
+.product-tagline { color: rgba(255,255,255,0.6); font-size: 6px; text-transform: uppercase; font-weight: 600; }
 
-.hole-area {
-  width: 100%;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+.top-zone-tail { height: 10px; background: #E87520; position: relative; }
+.top-zone-tail::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 10px; background: #FFF9F3; border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
 
-.hole-area::before {
-  content: '';
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #7a7a7a;
-  border: 1.5px solid rgba(255,176,0,.45);
-}
-
-.basf-logo {
-  width: 80px;
-  height: 22px;
-  filter: brightness(0) invert(1);
-  object-fit: contain;
-}
-
-.product-mythic {
-  font-size: 15px;
-  font-weight: 700;
-  font-style: normal; /* Không nghiêng */
-  color: #fff;
-}
-
-.product-tagline {
-  font-size: 6px;
-  font-weight: 600;
-  color: rgba(255,255,255,.42);
-  text-transform: uppercase;
-  margin-top: 4px;
-}
-
-.top-zone-tail {
-  height: 10px;
-  background: #E87520;
-  position: relative;
-}
-
-.top-zone-tail::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 10px;
-  background: #FFF9F3;
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-}
-
-/* ZONE 2 - PHOTOS */
-.photos-zone {
-  background: #FFF9F3;
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-  padding: 3px 8px 4px;
-}
-
-.photo-circle {
-  width: 27px;
-  height: 27px;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 0 0 1.5px #FFB000, 0 0 0 3px #C45A00;
-}
-
+.photos-zone { background: #FFF9F3; display: flex; justify-content: center; gap: 4px; padding: 5px; }
+.photo-circle { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #C45A00; overflow: hidden; }
 .photo-circle img { width: 100%; height: 100%; object-fit: cover; }
 
-/* ZONE 3 - SHAKE */
-.shake-zone {
-  background: #FFF9F3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 6px 14px;
-}
+.shake-zone { background: #FFF9F3; text-align: center; padding: 5px; }
+.lac-deu { font-size: 18px; font-weight: 900; color: #E87520; font-style: italic; }
+.shake-bar { width: 60px; height: 1px; background: #FFB000; margin: 4px auto; }
+.shake-en { font-size: 5px; color: #B06030; text-transform: uppercase; font-style: italic; }
 
-.lac-deu { font-size: 19px; font-weight: 900; font-style: italic; color: #E87520; }
-
-/* ZONE 4 - DOSAGE NẰM NGANG */
-.dosage-zone {
-  background: #FFF4E8;
-  padding: 3px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.d-row {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background: #fff;
-  border-radius: 4px;
-  padding: 2px 6px;
-  border-left: 2.5px solid #E87520;
-}
-
+.dosage-zone { background: #FFF4E8; padding: 5px 10px; display: flex; flex-direction: column; gap: 3px; }
+.dosage-title { font-size: 5px; font-weight: 700; color: #E87520; text-transform: uppercase; text-align: center; }
+.d-row { display: flex; align-items: center; gap: 5px; background: #fff; padding: 2px 5px; border-radius: 4px; border-left: 3px solid #E87520; }
 .d-text-inline { display: flex; align-items: baseline; gap: 4px; }
-.d-key { font-size: 4.5px; font-weight: 700; text-transform: uppercase; color: #A05020; }
+.d-key { font-size: 5px; font-weight: 700; color: #A05020; }
 .d-val { font-size: 7.5px; font-weight: 800; color: #3D1000; }
+.d-icon-circle { width: 12px; height: 12px; background: #E87520; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.d-icon-circle svg { width: 8px; }
 
-.d-icon-circle {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #E87520;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+.note-zone { background: #FFE8CC; text-align: center; padding: 5px; }
+.note-num { font-size: 18px; font-weight: 900; color: #E87520; }
+.note-text { font-size: 8px; font-weight: 700; color: #7A3A10; }
 
-/* ZONE 6 - FOOTER */
-.footer-zone {
-  background: #E87520;
-  padding: 5px 14px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-}
-
-.footer-brand-row { display: flex; align-items: center; gap: 6px; }
-.footer-mythic-new { font-size: 9.5px; font-weight: 800; font-style: normal; color: #fff; }
-.footer-sep { width: 1px; height: 10px; background: rgba(255,255,255,.4); }
+.footer-zone { background: #E87520; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+.qr-box { width: 50px; height: 50px; border: 1.5px dashed #fff; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 8px; }
+.footer-brand-row { display: flex; align-items: center; gap: 5px; }
+.footer-mythic-new { color: #fff; font-size: 10px; font-weight: 800; }
 .footer-logo-basf { height: 10px; filter: brightness(0) invert(1); }
-
-.qr-box {
-  width: 52px; height: 52px;
-  border: 1.5px dashed rgba(255,255,255,.55);
-  background: rgba(255,255,255,.1);
-  display: flex; align-items: center; justify-content: center;
-}
+.footer-sep { width: 1px; height: 10px; background: rgba(255,255,255,0.3); }
