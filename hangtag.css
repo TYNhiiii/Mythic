@@ -8,12 +8,14 @@
 
 /* ─────────────────────────────
    PALETTE
-   Orange : #E87520  (chủ đạo)
-   Deep   : #C45A00  (cam đậm hơn cho viền/depth)
-   Amber  : #FFB000
-   Cream  : #FFF4E8
-   Light  : #FFF9F3
 ───────────────────────────── */
+:root {
+  --orange-main: #E87520;
+  --orange-deep: #C45A00;
+  --amber: #FFB000;
+  --cream: #FFF4E8;
+  --light: #FFF9F3;
+}
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -26,35 +28,25 @@ body {
 }
 
 /* ══════════════════════════════
-   TAG SHELL  50 × 100 mm
-   screen  : 189 × 378 px
+   TAG SHELL (50 × 100 mm)
 ══════════════════════════════ */
 .hangtag {
   position: relative;
-  width: 189px;
-  height: 378px;
+  width: 189px; /* ~50mm screen */
+  height: 378px; /* ~100mm screen */
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  clip-path: polygon(
-    30px 0%,
-    calc(100% - 30px) 0%,
-    100% 30px,
-    100% 100%,
-    0% 100%,
-    0% 30px
-  );
-  box-shadow:
-    0 10px 36px rgba(0,0,0,.5),
-    0 2px 8px  rgba(0,0,0,.25);
+  background: #fff;
+  clip-path: polygon(30px 0%, calc(100% - 30px) 0%, 100% 30px, 100% 100%, 0% 100%, 0% 30px);
+  box-shadow: 0 10px 36px rgba(0,0,0,.5);
 }
 
 /* ══════════════════════════════
    ZONE 1 — TOP DARK BLOCK
-   hole + logo + product name
 ══════════════════════════════ */
 .top-zone {
-  background: #E87520;
+  background: var(--orange-main);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,33 +55,13 @@ body {
   padding-bottom: 5px;
 }
 
-/* diagonal stripe texture */
 .top-zone::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: repeating-linear-gradient(
-    135deg,
-    rgba(255,255,255,.025) 0px,
-    rgba(255,255,255,.025) 2px,
-    transparent 2px,
-    transparent 10px
-  );
-  pointer-events: none;
+  background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.025) 0px, rgba(255,255,255,.025) 2px, transparent 2px, transparent 10px);
 }
 
-/* depth shading — darker orange edges */
-.top-zone::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 0% 50%, rgba(100,30,0,.18) 0%, transparent 60%),
-    radial-gradient(ellipse at 100% 50%, rgba(100,30,0,.18) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-/* ── HOLE ── */
 .hole-area {
   position: relative;
   width: 100%;
@@ -109,20 +81,8 @@ body {
   border-radius: 50%;
   background: #7a7a7a;
   border: 1.5px solid rgba(255,176,0,.45);
-  z-index: 2;
 }
 
-.hole-area::after {
-  content: '';
-  position: absolute;
-  top: 4px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,176,0,.2);
-}
-
-/* ── BASF LOGO ── */
 .logo-wrap {
   margin-top: 1px;
   margin-bottom: 2px;
@@ -137,7 +97,6 @@ body {
   object-fit: contain;
 }
 
-/* ── PRODUCT IDENTITY ── */
 .product-name-block {
   text-align: center;
   width: 100%;
@@ -145,54 +104,29 @@ body {
   z-index: 1;
 }
 
-.product-name-block::before {
-  content: '';
-  display: block;
-  width: 44px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,176,0,.6), transparent);
-  margin: 0 auto 3px;
-}
-
-.product-title-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  margin-top: 0;
-}
-
 .product-mythic {
-  font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   font-weight: 700;
-  font-style: italic;
+  font-style: normal; /* Không nghiêng */
   color: #fff;
   letter-spacing: 0.5px;
-  line-height: 1;
-  text-shadow:
-    0 2px 8px rgba(100,30,0,.3),
-    0 0 16px rgba(255,255,255,.12);
+  text-shadow: 0 2px 8px rgba(100,30,0,.3);
 }
 
 .product-tagline {
-  font-family: 'Montserrat', sans-serif;
   font-size: 6px;
   font-weight: 600;
   color: rgba(255,255,255,.42);
   letter-spacing: 1px;
   text-transform: uppercase;
-  text-align: center;
   margin-top: 4px;
 }
 
-/* curved tail */
 .top-zone-tail {
   width: 100%;
   height: 10px;
-  background: #E87520;
+  background: var(--orange-main);
   position: relative;
-  flex-shrink: 0;
 }
 
 .top-zone-tail::after {
@@ -200,174 +134,116 @@ body {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 10px;
-  background: #FFF9F3;
+  background: var(--light);
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 
 /* ══════════════════════════════
-   ZONE 2 — 4 PHOTO CIRCLES
+   ZONE 2 — PHOTOS
 ══════════════════════════════ */
 .photos-zone {
-  background: #FFF9F3;
+  background: var(--light);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
   padding: 3px 8px 4px;
-  flex-shrink: 0;
-  position: relative;
-}
-
-/* faint wood-grain pattern */
-.photos-zone::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    90deg,
-    rgba(180,90,20,.04) 0px,
-    rgba(180,90,20,.04) 1px,
-    transparent 1px,
-    transparent 8px
-  );
-  pointer-events: none;
 }
 
 .photo-circle {
-  position: relative;
   width: 27px;
   height: 27px;
-  flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
-  /* amber gradient ring */
-  box-shadow:
-    0 0 0 1.5px #FFB000,
-    0 0 0 3px #C45A00,
-    0 2px 5px rgba(0,0,0,.22);
-  z-index: 1;
+  box-shadow: 0 0 0 1.5px var(--amber), 0 0 0 3px var(--orange-deep), 0 2px 5px rgba(0,0,0,.22);
 }
 
 .photo-circle img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
-
-.photo-circle:nth-child(1) img { object-position: center 30%; }
-.photo-circle:nth-child(2) img { object-position: center 40%; }
-.photo-circle:nth-child(3) img { object-position: center 50%; }
-.photo-circle:nth-child(4) img { object-position: center 35%; }
 
 /* ══════════════════════════════
    ZONE 3 — LẮC ĐỀU
 ══════════════════════════════ */
 .shake-zone {
-  background: #FFF9F3;
+  background: var(--light);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 6px 14px 6px;
-  flex-shrink: 0;
-  position: relative;
-}
-
-/* separator removed */
-.shake-zone::before {
-  display: none;
 }
 
 .shake-deco-row {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 5px;
-  margin-bottom: 3px;
   width: 100%;
+  margin-bottom: 3px;
 }
 
 .shake-deco-row i {
-  display: block;
   flex: 1;
   height: 1.5px;
-  background: linear-gradient(90deg, transparent, #FFB000);
-  border-radius: 1px;
+  background: linear-gradient(90deg, transparent, var(--amber));
 }
 
 .shake-deco-row i:last-child {
-  background: linear-gradient(90deg, #FFB000, transparent);
+  background: linear-gradient(90deg, var(--amber), transparent);
 }
 
-.shake-deco-row svg {
-  width: 10px;
-  height: 10px;
-  flex-shrink: 0;
-}
+.shake-deco-row svg { width: 10px; height: 10px; }
 
 .lac-deu {
-  font-family: 'Montserrat', sans-serif;
   font-size: 19px;
   font-weight: 900;
   font-style: italic;
-  color: #E87520;
-  letter-spacing: -0.5px;
+  color: var(--orange-main);
   line-height: 1.1;
-  text-shadow:
-    1px 1px 0 rgba(92,30,0,.15),
-    0 0 16px rgba(232,117,32,.2);
 }
 
 .lac-sub-vi {
-  font-family: 'Montserrat', sans-serif;
   font-size: 7.5px;
   font-weight: 700;
-  color: #C45A00;
-  letter-spacing: 0.5px;
+  color: var(--orange-deep);
   text-transform: uppercase;
-  margin-top: 3px;
 }
 
 .shake-bar {
   width: 55%;
   height: 0.5px;
-  background: linear-gradient(90deg, #FFB000, #E87520);
-  border-radius: 2px;
-  margin: 4px auto 4px;
+  background: linear-gradient(90deg, var(--amber), var(--orange-main));
+  margin: 4px 0;
 }
 
 .shake-en {
-  font-family: 'Montserrat', sans-serif;
   font-size: 5.5px;
   font-weight: 500;
   font-style: italic;
   color: #B06030;
-  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 /* ══════════════════════════════
-   ZONE 4 — DOSAGE
+   ZONE 4 — DOSAGE (INLINE)
 ══════════════════════════════ */
 .dosage-zone {
-  background: #FFF4E8;
+  background: var(--cream);
   border-top: 1.5px solid #FFD09A;
-  padding: 3px 10px 3px;
-  flex-shrink: 0;
+  padding: 3px 10px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .dosage-title {
-  font-family: 'Montserrat', sans-serif;
   font-size: 5px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #E87520;
+  color: var(--orange-main);
   text-align: center;
-  margin-bottom: 1px;
 }
 
 .d-row {
@@ -377,53 +253,44 @@ body {
   background: #fff;
   border-radius: 4px;
   padding: 2px 6px;
-  border-left: 2.5px solid #E87520;
-  box-shadow: 0 1px 2px rgba(92,30,0,.07);
+  border-left: 2.5px solid var(--orange-main);
 }
 
-.d-row:last-child {
-  border-left-color: #FFB000;
-}
+.d-row:last-child { border-left-color: var(--amber); }
 
 .d-icon-circle {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #E87520;
-  flex-shrink: 0;
+  background: var(--orange-main);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
-.d-row:last-child .d-icon-circle {
-  background: #FFB000;
-}
+.d-row:last-child .d-icon-circle { background: var(--amber); }
+.d-icon-circle svg { width: 8px; height: 8px; }
 
-.d-icon-circle svg {
-  width: 8px;
-  height: 8px;
+.d-text-inline {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
 }
-
-.d-text { flex: 1; min-width: 0; }
 
 .d-key {
-  display: block;
-  font-family: 'Montserrat', sans-serif;
   font-size: 4.5px;
   font-weight: 700;
-  letter-spacing: 0.7px;
   text-transform: uppercase;
   color: #A05020;
+  white-space: nowrap;
 }
 
 .d-val {
-  display: block;
-  font-family: 'Montserrat', sans-serif;
   font-size: 7.5px;
   font-weight: 800;
   color: #3D1000;
-  line-height: 1.1;
   white-space: nowrap;
 }
 
@@ -434,89 +301,64 @@ body {
   background: #FFE8CC;
   border-top: 1px dashed #FFBA6A;
   padding: 3px 12px 4px;
-  margin-top: 0;
   text-align: center;
-  flex-shrink: 0;
 }
 
 .note-text {
-  font-family: 'Montserrat', sans-serif;
   font-size: 7px;
   font-weight: 600;
   color: #7A3A10;
-  letter-spacing: 0.3px;
   display: inline-flex;
   align-items: baseline;
   gap: 2px;
 }
 
 .note-num {
-  font-family: 'Montserrat', sans-serif;
   font-size: 17px;
   font-weight: 900;
   font-style: italic;
-  color: #E87520;
-  line-height: 1;
-  text-shadow: 0 1px 4px rgba(92,30,0,.2);
+  color: var(--orange-main);
 }
 
 /* ══════════════════════════════
-   ZONE 6 — FOOTER
+   ZONE 6 — FOOTER (LOGO BASF)
 ══════════════════════════════ */
 .footer-zone {
-  background: #E87520;
-  padding: 5px 14px 5px;
-  text-align: center;
+  background: var(--orange-main);
+  padding: 5px 14px;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
   gap: 7px;
-}
-
-.footer-zone::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #fff 40%, #fff 60%, transparent);
-  opacity: .5;
 }
 
 .footer-brand-row {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
 }
 
-.footer-mythic {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 900;
-  font-style: italic;
+.footer-mythic-new {
+  font-size: 9.5px;
+  font-weight: 800;
+  font-style: normal; /* Không nghiêng */
   color: #fff;
-  letter-spacing: 0.5px;
 }
 
 .footer-sep {
   width: 1px;
-  height: 12px;
+  height: 10px;
   background: rgba(255,255,255,.4);
 }
 
-.footer-sc {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 9px;
-  font-weight: 700;
-  color: #FFE0A0;
-  letter-spacing: 1.5px;
+.footer-logo-basf {
+  height: 10px;
+  width: auto;
+  filter: brightness(0) invert(1);
 }
 
-/* ══════════════════════════════
-   QR PLACEHOLDER
-══════════════════════════════ */
 .qr-placeholder {
   display: flex;
   flex-direction: column;
@@ -532,30 +374,9 @@ body {
   align-items: center;
   justify-content: center;
   background: rgba(255,255,255,.10);
-  position: relative;
-}
-
-/* corner markers để trông như QR placeholder */
-.qr-box::before,
-.qr-box::after {
-  content: '';
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-color: rgba(255,255,255,.7);
-  border-style: solid;
-}
-.qr-box::before {
-  top: 4px; left: 4px;
-  border-width: 2px 0 0 2px;
-}
-.qr-box::after {
-  bottom: 4px; right: 4px;
-  border-width: 0 2px 2px 0;
 }
 
 .qr-label {
-  font-family: 'Montserrat', sans-serif;
   font-size: 7px;
   font-weight: 700;
   color: rgba(255,255,255,.45);
@@ -567,27 +388,7 @@ body {
 ══════════════════════════════ */
 @media print {
   @page { size: 50mm 100mm; margin: 0; }
-
-  body {
-    background: none;
-    margin: 0; padding: 0;
-    display: block;
-  }
-
-  .hangtag {
-    width: 50mm;
-    height: 100mm;
-    box-shadow: none;
-    clip-path: polygon(
-      8mm 0%,
-      calc(100% - 8mm) 0%,
-      100% 8mm,
-      100% 100%,
-      0% 100%,
-      0% 8mm
-    );
-  }
-
+  body { background: none; padding: 0; display: block; }
+  .hangtag { width: 50mm; height: 100mm; box-shadow: none; }
   .hole-area::before { background: #fff; }
-  .top-zone-tail { background: #E87520; }
 }
