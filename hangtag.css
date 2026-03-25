@@ -493,10 +493,10 @@ body {
 
 .footer-mythic {
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: 0.5px;
+    font-size: 6.5px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
 }
 
 .footer-sep {
