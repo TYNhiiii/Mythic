@@ -6,17 +6,6 @@
   padding: 0;
 }
 
-/* ─────────────────────────────
-   PALETTE
-───────────────────────────── */
-:root {
-  --orange-main: #E87520;
-  --orange-deep: #C45A00;
-  --amber: #FFB000;
-  --cream: #FFF4E8;
-  --light: #FFF9F3;
-}
-
 body {
   font-family: 'Montserrat', sans-serif;
   background: #7a7a7a;
@@ -27,13 +16,10 @@ body {
   padding: 48px 20px;
 }
 
-/* ══════════════════════════════
-   TAG SHELL (50 × 100 mm)
-══════════════════════════════ */
 .hangtag {
   position: relative;
-  width: 189px; /* ~50mm screen */
-  height: 378px; /* ~100mm screen */
+  width: 189px;
+  height: 378px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -42,40 +28,26 @@ body {
   box-shadow: 0 10px 36px rgba(0,0,0,.5);
 }
 
-/* ══════════════════════════════
-   ZONE 1 — TOP DARK BLOCK
-══════════════════════════════ */
+/* ZONE 1 */
 .top-zone {
-  background: var(--orange-main);
+  background: #E87520;
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-shrink: 0;
-  position: relative;
   padding-bottom: 5px;
-}
-
-.top-zone::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.025) 0px, rgba(255,255,255,.025) 2px, transparent 2px, transparent 10px);
+  position: relative;
 }
 
 .hole-area {
-  position: relative;
   width: 100%;
   height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
 }
 
 .hole-area::before {
   content: '';
-  position: absolute;
-  top: 8px;
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -83,25 +55,11 @@ body {
   border: 1.5px solid rgba(255,176,0,.45);
 }
 
-.logo-wrap {
-  margin-top: 1px;
-  margin-bottom: 2px;
-  z-index: 1;
-}
-
 .basf-logo {
-  display: block;
   width: 80px;
   height: 22px;
   filter: brightness(0) invert(1);
   object-fit: contain;
-}
-
-.product-name-block {
-  text-align: center;
-  width: 100%;
-  padding: 0 10px;
-  z-index: 1;
 }
 
 .product-mythic {
@@ -109,23 +67,19 @@ body {
   font-weight: 700;
   font-style: normal; /* Không nghiêng */
   color: #fff;
-  letter-spacing: 0.5px;
-  text-shadow: 0 2px 8px rgba(100,30,0,.3);
 }
 
 .product-tagline {
   font-size: 6px;
   font-weight: 600;
   color: rgba(255,255,255,.42);
-  letter-spacing: 1px;
   text-transform: uppercase;
   margin-top: 4px;
 }
 
 .top-zone-tail {
-  width: 100%;
   height: 10px;
-  background: var(--orange-main);
+  background: #E87520;
   position: relative;
 }
 
@@ -134,17 +88,14 @@ body {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 10px;
-  background: var(--light);
+  background: #FFF9F3;
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 
-/* ══════════════════════════════
-   ZONE 2 — PHOTOS
-══════════════════════════════ */
+/* ZONE 2 - PHOTOS */
 .photos-zone {
-  background: var(--light);
+  background: #FFF9F3;
   display: flex;
-  align-items: center;
   justify-content: center;
   gap: 4px;
   padding: 3px 8px 4px;
@@ -155,95 +106,29 @@ body {
   height: 27px;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 0 0 1.5px var(--amber), 0 0 0 3px var(--orange-deep), 0 2px 5px rgba(0,0,0,.22);
+  box-shadow: 0 0 0 1.5px #FFB000, 0 0 0 3px #C45A00;
 }
 
-.photo-circle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.photo-circle img { width: 100%; height: 100%; object-fit: cover; }
 
-/* ══════════════════════════════
-   ZONE 3 — LẮC ĐỀU
-══════════════════════════════ */
+/* ZONE 3 - SHAKE */
 .shake-zone {
-  background: var(--light);
+  background: #FFF9F3;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6px 14px 6px;
+  padding: 6px 14px;
 }
 
-.shake-deco-row {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  width: 100%;
-  margin-bottom: 3px;
-}
+.lac-deu { font-size: 19px; font-weight: 900; font-style: italic; color: #E87520; }
 
-.shake-deco-row i {
-  flex: 1;
-  height: 1.5px;
-  background: linear-gradient(90deg, transparent, var(--amber));
-}
-
-.shake-deco-row i:last-child {
-  background: linear-gradient(90deg, var(--amber), transparent);
-}
-
-.shake-deco-row svg { width: 10px; height: 10px; }
-
-.lac-deu {
-  font-size: 19px;
-  font-weight: 900;
-  font-style: italic;
-  color: var(--orange-main);
-  line-height: 1.1;
-}
-
-.lac-sub-vi {
-  font-size: 7.5px;
-  font-weight: 700;
-  color: var(--orange-deep);
-  text-transform: uppercase;
-}
-
-.shake-bar {
-  width: 55%;
-  height: 0.75px;
-  background: linear-gradient(90deg, var(--amber), var(--orange-main));
-  margin: 4px 0;
-}
-
-.shake-en {
-  font-size: 5.5px;
-  font-weight: 500;
-  font-style: italic;
-  color: #B06030;
-  text-transform: uppercase;
-}
-
-/* ══════════════════════════════
-   ZONE 4 — DOSAGE (INLINE)
-══════════════════════════════ */
+/* ZONE 4 - DOSAGE NẰM NGANG */
 .dosage-zone {
-  background: var(--cream);
-  border-top: 1.5px solid #FFD09A;
+  background: #FFF4E8;
   padding: 3px 10px;
   display: flex;
   flex-direction: column;
   gap: 3px;
-}
-
-.dosage-title {
-  font-size: 5px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--orange-main);
-  text-align: center;
 }
 
 .d-row {
@@ -253,78 +138,26 @@ body {
   background: #fff;
   border-radius: 4px;
   padding: 2px 6px;
-  border-left: 2.5px solid var(--orange-main);
+  border-left: 2.5px solid #E87520;
 }
 
-.d-row:last-child { border-left-color: var(--amber); }
+.d-text-inline { display: flex; align-items: baseline; gap: 4px; }
+.d-key { font-size: 4.5px; font-weight: 700; text-transform: uppercase; color: #A05020; }
+.d-val { font-size: 7.5px; font-weight: 800; color: #3D1000; }
 
 .d-icon-circle {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: var(--orange-main);
+  background: #E87520;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
 }
 
-.d-row:last-child .d-icon-circle { background: var(--amber); }
-.d-icon-circle svg { width: 8px; height: 8px; }
-
-.d-text-inline {
-  flex: 1;
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
-}
-
-.d-key {
-  font-size: 4.5px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #A05020;
-  white-space: nowrap;
-}
-
-.d-val {
-  font-size: 7.5px;
-  font-weight: 800;
-  color: #3D1000;
-  white-space: nowrap;
-}
-
-/* ══════════════════════════════
-   ZONE 5 — NOTE
-══════════════════════════════ */
-.note-zone {
-  background: #FFE8CC;
-  border-top: 1px dashed #FFBA6A;
-  padding: 3px 12px 4px;
-  text-align: center;
-}
-
-.note-text {
-  font-size: 7px;
-  font-weight: 600;
-  color: #7A3A10;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 2px;
-}
-
-.note-num {
-  font-size: 17px;
-  font-weight: 900;
-  font-style: italic;
-  color: var(--orange-main);
-}
-
-/* ══════════════════════════════
-   ZONE 6 — FOOTER (LOGO BASF)
-══════════════════════════════ */
+/* ZONE 6 - FOOTER */
 .footer-zone {
-  background: var(--orange-main);
+  background: #E87520;
   padding: 5px 14px;
   flex: 1;
   display: flex;
@@ -334,61 +167,14 @@ body {
   gap: 7px;
 }
 
-.footer-brand-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.footer-mythic-new {
-  font-size: 9.5px;
-  font-weight: 800;
-  font-style: normal; /* Không nghiêng */
-  color: #fff;
-}
-
-.footer-sep {
-  width: 1px;
-  height: 10px;
-  background: rgba(255,255,255,.4);
-}
-
-.footer-logo-basf {
-  height: 10px;
-  width: auto;
-  filter: brightness(0) invert(1);
-}
-
-.qr-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+.footer-brand-row { display: flex; align-items: center; gap: 6px; }
+.footer-mythic-new { font-size: 9.5px; font-weight: 800; font-style: normal; color: #fff; }
+.footer-sep { width: 1px; height: 10px; background: rgba(255,255,255,.4); }
+.footer-logo-basf { height: 10px; filter: brightness(0) invert(1); }
 
 .qr-box {
-  width: 52px;
-  height: 52px;
+  width: 52px; height: 52px;
   border: 1.5px dashed rgba(255,255,255,.55);
-  border-radius: 7px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,.10);
-}
-
-.qr-label {
-  font-size: 7px;
-  font-weight: 700;
-  color: rgba(255,255,255,.45);
-  letter-spacing: 2px;
-}
-
-/* ══════════════════════════════
-   PRINT
-══════════════════════════════ */
-@media print {
-  @page { size: 50mm 100mm; margin: 0; }
-  body { background: none; padding: 0; display: block; }
-  .hangtag { width: 50mm; height: 100mm; box-shadow: none; }
-  .hole-area::before { background: #fff; }
+  background: rgba(255,255,255,.1);
+  display: flex; align-items: center; justify-content: center;
 }
